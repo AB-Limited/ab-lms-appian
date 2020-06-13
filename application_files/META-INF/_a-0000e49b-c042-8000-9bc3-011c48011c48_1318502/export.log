@@ -1,0 +1,44 @@
+Success (2):
+group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 "AB_CICD_ALL_USERS"
+application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 "AB CICD LMS"
+
+Trace:
+2020-06-13 10:43:24.096 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Begin transport.
+2020-06-13 10:43:24.096 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Retrieving object data.
+2020-06-13 10:43:24.101 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 App associated objects: [group=[_e-0000e49b-c042-8000-9b0f-01075c01075c_4301]]
+2020-06-13 10:43:24.103 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Invalid associated objects: []
+2020-06-13 10:43:24.103 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Adding valid associated objects to be exported: GlobalBindingMap[group={_e-0000e49b-c042-8000-9b0f-01075c01075c_4301=949}]
+2020-06-13 10:43:24.103 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Setting uuids of object references.
+2020-06-13 10:43:24.103 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: Application.forum
+2020-06-13 10:43:24.103 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: Application.parent
+2020-06-13 10:43:24.106 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: com.appiancorp.suiteapi.content.ContentRoleMap@5885e1df[
+  ContentRole[name=readers,inherit=false,allowForAll=false]
+  ContentRole[name=authors,inherit=false,allowForAll=false]
+  ContentRole[name=administrators,inherit=false,allowForAll=false]
+  ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+  ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+  ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+  securityVector=1:SEC_PUBLIC=true,SEC_CREATOR_ADMIN=false,SEC_INH_ADMIN=false,SEC_INH_EDITOR=false,SEC_INH_VIEWER=false,SEC_ALL_ADMIN=false,SEC_ALL_EDITOR=false,SEC_ALL_VIEWER=false
+]
+2020-06-13 10:43:24.106 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: ContentRole[name=readers,inherit=false,allowForAll=false]
+2020-06-13 10:43:24.106 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: ContentRole[name=authors,inherit=false,allowForAll=false]
+2020-06-13 10:43:24.106 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: ContentRole[name=administrators,inherit=false,allowForAll=false]
+2020-06-13 10:43:24.106 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: ContentRole[name=denyReaders,inherit=false,allowForAll=false]
+2020-06-13 10:43:24.106 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: ContentRole[name=denyAuthors,inherit=false,allowForAll=false]
+2020-06-13 10:43:24.106 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Processing reference: ContentRole[name=denyAdministrators,inherit=false,allowForAll=false]
+2020-06-13 10:43:24.108 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Begin transport.
+2020-06-13 10:43:24.108 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Retrieving object data.
+2020-06-13 10:43:24.114 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Setting uuids of object references.
+2020-06-13 10:43:24.114 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Processing reference: Role[name=<null>]
+2020-06-13 10:43:24.114 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Processing reference: Group.groupTypeId
+2020-06-13 10:43:24.115 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Processing reference: Group.parentId
+2020-06-13 10:43:24.116 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Processing reference: Group.homePageId
+2020-06-13 10:43:24.116 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Processing reference: Role[name=<null>]
+2020-06-13 10:43:24.116 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Completing produce.
+2020-06-13 10:43:24.116 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Exporting binary resources.
+2020-06-13 10:43:24.116 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Serializing object to XML.
+2020-06-13 10:43:24.12 DEBUG group 949 _e-0000e49b-c042-8000-9b0f-01075c01075c_4301 Object transported.
+2020-06-13 10:43:24.12 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Completing produce.
+2020-06-13 10:43:24.12 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Exporting binary resources.
+2020-06-13 10:43:24.12 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Serializing object to XML.
+2020-06-13 10:43:24.126 DEBUG application 98589 _a-0000e49b-c042-8000-9bc3-011c48011c48_1318502 Object transported.

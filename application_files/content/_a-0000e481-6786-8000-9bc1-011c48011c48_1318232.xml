@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e481-6786-8000-9bc1-011c48011c48_1318278</versionUuid>
+    <rule>
+        <name>LMS_siteHomePage</name>
+        <uuid>_a-0000e481-6786-8000-9bc1-011c48011c48_1318232</uuid>
+        <description>LMS Site Home Page</description>
+        <parentUuid>_a-0000e481-6786-8000-9bc1-011c48011c48_1318209</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>{
+  #"SYSTEM_SYSRULES_richTextDisplayField"(
+    label: "Apply for Leave",
+    labelPosition: "COLLAPSED",
+    value: {
+      #"SYSTEM_SYSRULES_richTextItem_v1"(
+        size: "LARGE",
+        text: {
+          "Apply for Leave - Rich Text"
+        },
+        style: {
+          "STRONG"
+        },
+        link: #"SYSTEM_SYSRULES_startProcessLink"(
+          processModel: #"_a-0000e481-6786-8000-9bc1-011c48011c48_1318246",
+          processParameters: {
+            readOnly: false()
+          }
+        )
+      )
+    }
+  ),
+  #"SYSTEM_SYSRULES_linkField"(
+    links: {
+      #"SYSTEM_SYSRULES_startProcessLink"(
+        label: "Apply for Leave - Link Field",
+        processModel: #"_a-0000e481-6786-8000-9bc1-011c48011c48_1318246",
+        processParameters: {
+          readOnly: false()
+        }
+      )
+    }
+  )
+}</definition>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <history>
+        <historyInfo versionUuid="_a-0000e481-6786-8000-9bc1-011c48011c48_1318278"/>
+    </history>
+</contentHaul>

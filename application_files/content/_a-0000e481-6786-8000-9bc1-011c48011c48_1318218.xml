@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<contentHaul xmlns:a="http://www.appian.com/ae/types/2009">
+    <versionUuid>_a-0000e49b-c042-8000-9bc3-011c48011c48_1318359</versionUuid>
+    <rule>
+        <name>LMS_f_applyForLeave</name>
+        <uuid>_a-0000e481-6786-8000-9bc1-011c48011c48_1318218</uuid>
+        <description>Interface to apply for Leave</description>
+        <parentUuid>_a-0000e481-6786-8000-9bc1-011c48011c48_1318209</parentUuid>
+        <visibility>
+            <advertise>false</advertise>
+            <hierarchy>true</hierarchy>
+            <indexable>true</indexable>
+            <quota>false</quota>
+            <searchable>true</searchable>
+            <system>false</system>
+            <unlogged>false</unlogged>
+        </visibility>
+        <definition>a!localVariables(
+  local!employee,
+  local!currentStep: 1,
+  local!steps: {
+    "Employee Info",
+    "Review"
+  },
+  local!description,
+  local!milestonesReached,
+  local!leaveDays,
+  local!wasClientInformed,
+  local!confirmationCheckbox: null,
+  #"SYSTEM_SYSRULES_formLayout_v1"(
+    label: "Apply for Leave",
+    contents: {
+      #"SYSTEM_SYSRULES_milestoneField"(
+        steps: local!steps,
+        active: local!currentStep
+      ),
+      #"SYSTEM_SYSRULES_columnsLayout"(
+        columns: {
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              #"SYSTEM_SYSRULES_textField"(
+                label: "Employee Name",
+                labelPosition: if(
+                  local!currentStep = 2,
+                  "ADJACENT",
+                  "ABOVE"
+                ),
+                value: ri!LMS_Leave.employeeName1,
+                saveInto: ri!LMS_Leave.employeeName1,
+                readOnly: local!currentStep = 2,
+                required: not(
+                  local!currentStep = 2
+                ),
+                showWhen: or(
+                  local!currentStep = {
+                    1,
+                    2
+                  }
+                )
+              ),
+              #"SYSTEM_SYSRULES_integerField"(
+                label: "No of days",
+                labelPosition: if(
+                  local!currentStep = 2,
+                  "ADJACENT",
+                  "ABOVE"
+                ),
+                value: local!leaveDays,
+                saveInto: local!leaveDays,
+                readOnly: local!currentStep = 2,
+                required: not(
+                  local!currentStep = 2
+                ),
+                showWhen: or(
+                  local!currentStep = {
+                    1,
+                    2
+                  }
+                )
+              ),
+              #"SYSTEM_SYSRULES_dateField"(
+                label: "Start Date",
+                labelPosition: if(
+                  local!currentStep = 2,
+                  "ADJACENT",
+                  "ABOVE"
+                ),
+                value: ri!LMS_Leave.startDate,
+                saveInto: ri!LMS_Leave.startDate,
+                readOnly: local!currentStep = 2,
+                required: not(
+                  local!currentStep = 2
+                ),
+                showWhen: or(
+                  local!currentStep = {
+                    1,
+                    2
+                  }
+                )
+              ),
+              #"SYSTEM_SYSRULES_dateField"(
+                label: "End Date",
+                labelPosition: if(
+                  local!currentStep = 2,
+                  "ADJACENT",
+                  "ABOVE"
+                ),
+                value: ri!LMS_Leave.endDate,
+                saveInto: ri!LMS_Leave.endDate,
+                readOnly: local!currentStep = 2,
+                required: not(
+                  local!currentStep = 2
+                ),
+                showWhen: or(
+                  local!currentStep = {
+                    1,
+                    2
+                  }
+                )
+              ),
+              #"SYSTEM_SYSRULES_dropdownField"(
+                label: "Has the client been informed?",
+                labelPosition: if(
+                  local!currentStep = 2,
+                  "ADJACENT",
+                  "ABOVE"
+                ),
+                placeholderLabel: "-- Select --",
+                choiceLabels: {
+                  "Yes",
+                  "No"
+                },
+                choiceValues: {
+                  "Yes",
+                  "No"
+                },
+                value: local!wasClientInformed,
+                saveInto: local!wasClientInformed,
+                disabled: local!currentStep = 2,
+                showWhen: or(
+                  local!currentStep = {
+                    1,
+                    2
+                  }
+                )
+              ),
+              #"SYSTEM_SYSRULES_checkboxField"(
+                label: "",
+                choiceLabels: {
+                  "I confirm"
+                },
+                choiceValues: {
+                  true()
+                },
+                value: local!confirmationCheckbox,
+                saveInto: local!confirmationCheckbox,
+                disabled: local!currentStep = 2
+              )
+            }
+          ),
+          #"SYSTEM_SYSRULES_columnLayout"(
+            contents: {
+              richTextField(
+                label: "Impacted Work Details",
+                labelPosition: if(
+                  local!currentStep = 2,
+                  "ADJACENT",
+                  "ABOVE"
+                ),
+                richTextValue: local!description,
+                richTextSaveInto: local!description,
+                readOnly: local!currentStep = 2,
+                required: not(
+                  local!currentStep = 2
+                ),
+                showWhen: or(
+                  local!currentStep = {
+                    1,
+                    2
+                  }
+                )
+              ),
+              #"SYSTEM_SYSRULES_textField"(
+                label: "Status of the work",
+                labelPosition: if(
+                  local!currentStep = 2,
+                  "ADJACENT",
+                  "ABOVE"
+                ),
+                value: ri!LMS_Leave.status,
+                saveInto: ri!LMS_Leave.status,
+                readOnly: local!currentStep = 2,
+                showWhen: or(
+                  local!currentStep = {
+                    1,
+                    2
+                  }
+                )
+              ),
+              #"SYSTEM_SYSRULES_radioButtonField"(
+                label: "Are all milestones reached?",
+                labelPosition: if(
+                  local!currentStep = 2,
+                  "ADJACENT",
+                  "ABOVE"
+                ),
+                choiceLabels: {
+                  "Yes",
+                  "No"
+                },
+                choiceValues: {
+                  "Yes",
+                  "No"
+                },
+                value: local!milestonesReached,
+                saveInto: local!milestonesReached,
+                disabled: local!currentStep = 2,
+                showWhen: or(
+                  local!currentStep = {
+                    1,
+                    2
+                  }
+                )
+              ),
+              
+            }
+          )
+        }
+      )
+    },
+    buttons: #"SYSTEM_SYSRULES_ButtonLayout"(
+      primaryButtons: {
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: "Go Back",
+          value: local!currentStep - 1,
+          saveInto: local!currentStep,
+          showWhen: or(
+            local!currentStep = {
+              2
+            }
+          )
+        ),
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: "Go to Review",
+          value: local!currentStep + 1,
+          saveInto: local!currentStep,
+          validate: true,
+          showWhen: or(
+            local!currentStep = {
+              1
+            }
+          )
+        ),
+        #"SYSTEM_SYSRULES_ButtonWidget"(
+          label: "Submit",
+          style: "PRIMARY",
+          submit: true,
+          showWhen: local!currentStep = 2
+        )
+      }
+    )
+  )
+)</definition>
+        <namedTypedValue>
+            <name>LMS_Leave</name>
+            <type>
+                <name>LMS_Leave</name>
+                <namespace>urn:com:appian:types:LMS</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>cancel</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <namedTypedValue>
+            <name>readOnly</name>
+            <type>
+                <name>boolean</name>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+            </type>
+        </namedTypedValue>
+        <preferredEditor>interface</preferredEditor>
+        <offlineEnabled>false</offlineEnabled>
+    </rule>
+    <roleMap public="true">
+        <role inherit="true" allowForAll="false" name="readers">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="authors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="true" allowForAll="false" name="administrators">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyReaders">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAuthors">
+            <users/>
+            <groups/>
+        </role>
+        <role inherit="false" allowForAll="false" name="denyAdministrators">
+            <users/>
+            <groups/>
+        </role>
+    </roleMap>
+    <typedValue>
+        <type>
+            <name>RuleTestConfig?list</name>
+            <namespace>http://www.appian.com/ae/types/2009</namespace>
+        </type>
+        <value>
+            <el>
+                <a:name/>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="a:Expression">'type!{urn:com:appian:types:LMS}LMS_Leave'()</a:value>
+                    <a:nameRef>LMS_Leave</a:nameRef>
+                    <a:id>1</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:boolean"/>
+                    <a:nameRef>cancel</a:nameRef>
+                    <a:id>2</a:id>
+                </a:ruleInputTestConfigs>
+                <a:ruleInputTestConfigs>
+                    <a:value xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true" xsi:type="xsd:boolean"/>
+                    <a:nameRef>readOnly</a:nameRef>
+                    <a:id>3</a:id>
+                </a:ruleInputTestConfigs>
+                <a:assertions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+            </el>
+        </value>
+    </typedValue>
+    <history>
+        <historyInfo versionUuid="_a-0000e49b-c042-8000-9bc3-011c48011c48_1318359"/>
+    </history>
+</contentHaul>
